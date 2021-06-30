@@ -17,13 +17,13 @@ public enum ArithmeticOperator implements Operator{
     }
 
     @Override
-    public double result(Double first, Double second) {
-        if (this == PLUS) return first + second;
-        if (this == MINUS) return first - second;
-        if (this == DIVIDE) return first/second;
-        if (this == MULTIPLY) return first*second;
-        if (this == POWER) return Math.pow(first, second);
-        return Math.sqrt(first);
+    public double result(Double result, Double number) {
+        if (this == PLUS) return result + number;
+        if (this == MINUS) return result - number;
+        if (this == DIVIDE) return result / number;
+        if (this == MULTIPLY) return result * number;
+        if (this == POWER) return Math.pow(result, number);
+        return Math.sqrt(result);
     }
 
     @Override
