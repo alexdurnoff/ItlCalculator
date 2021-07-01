@@ -1,16 +1,22 @@
 package ru.durnov.ui.buttons;
 
+import javafx.scene.control.Button;
+import javafx.scene.control.TextField;
 import ru.durnov.expressions.Operator;
 
-public class OperatorButton implements CalculatorButton{
+public class OperatorButton extends Button implements CalculatorButton{
     private final Operator operator;
+    private final TextField textField;
 
-    public OperatorButton(Operator operator) {
+    public OperatorButton(Operator operator, TextField textField) {
         this.operator = operator;
+        this.textField = textField;
+        this.setOnAction(ae -> addToTextField());
     }
 
+
     @Override
-    public String addTo(String str) {
-        return str + this.operator.symbol();
+    public void addToTextField() {
+        this.textField.setText(this.textField.getText() + this.operator.symbol());
     }
 }

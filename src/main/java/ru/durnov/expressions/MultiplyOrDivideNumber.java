@@ -11,8 +11,6 @@ public class MultiplyOrDivideNumber implements Number{
         Matcher matcher = pattern.matcher(str);
         if (matcher.matches()){
             this.expression = new ArithmeticExpression(matcher.group(1), matcher.group(2), matcher.group(3));
-        } else if (matcher.find()){
-            this.expression = new ArithmeticExpression(str);
         } else {
             throw new IllegalArgumentException("Illegal expression");
         }

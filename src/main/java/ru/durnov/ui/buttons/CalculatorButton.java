@@ -1,5 +1,7 @@
 package ru.durnov.ui.buttons;
 
+import java.sql.SQLException;
+
 public interface CalculatorButton {
-    String addTo(String str);
+    void addToTextField() throws SQLException;
 }
