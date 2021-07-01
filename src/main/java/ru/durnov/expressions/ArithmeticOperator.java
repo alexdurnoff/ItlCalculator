@@ -6,7 +6,7 @@ public enum ArithmeticOperator implements Operator{
     MULTIPLY("*"),
     DIVIDE("/"),
     POWER("^"),
-    SQRT("\\u221A")
+    SQRT("\u221A")
     ;
 
     private final String symbol;
@@ -29,5 +29,14 @@ public enum ArithmeticOperator implements Operator{
     @Override
     public String symbol() {
         return this.symbol;
+    }
+
+    public static Operator operatorByString(String str){
+        if (str.equals("+")) return PLUS;
+        if (str.equals("-")) return MINUS;
+        if (str.equals("*")) return MULTIPLY;
+        if (str.equals("/")) return DIVIDE;
+        if (str.equals("\u221A")) return SQRT;
+        throw new IllegalArgumentException("Illegal operator");
     }
 }

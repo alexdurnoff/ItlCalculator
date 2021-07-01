@@ -1,46 +1,26 @@
 package ru.durnov.expressions;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 public class ArithmeticExpression implements Expression {
-    private final Queue<Double> doubleQueue;
-    private final Queue<Operator> operatorQueue;
+    private final String request;
+    private final Result result;
 
     public ArithmeticExpression(String str){
-        this.doubleQueue = new Numbers(str).queue();
-        this.operatorQueue = new Operators(str).queue();
+        this.result = new Result(str);
+        this.request = str + "=" + String.format("%.2f", this.result.result());
     }
 
-
-    public ArithmeticExpression(Double firstNumber, Double secondNumber, Operator operator) {
-        this.doubleQueue = new ArrayDeque<>();
-        this.doubleQueue.add(firstNumber);
-        this.doubleQueue.add(secondNumber);
-        this.operatorQueue = new ArrayDeque<>();
-        this.operatorQueue.add(new StartOperator());
-        this.operatorQueue.add(operator);
-
+    public ArithmeticExpression(String first, String operator, String second){
+        this.result = new Result(first + operator + second);
+        this.request = first + operator + second + "=" + String.format("%.2f", this.result.result());
     }
-
-    public ArithmeticExpression(Double firstNumber, Double secondNumber, String operatorType){
-        Operator operator = ArithmeticOperator.valueOf(operatorType);
-        this.doubleQueue = new ArrayDeque<>();
-        this.doubleQueue.add(firstNumber);
-        this.doubleQueue.add(secondNumber);
-        this.operatorQueue = new ArrayDeque<>();
-        this.operatorQueue.add(new StartOperator());
-        this.operatorQueue.add(operator);
-    }
-
 
     @Override
     public Double result() {
-        return null;
+        return this.result.result();
     }
 
     @Override
     public String sql() {
-        return null;
+        return this.request;
     }
 }

@@ -11,11 +11,11 @@ public class Operators {
 
 
     public Operators(String str) {
+        String source = str.replaceAll("\\([.]\\)", "");
         this.operatorQueue.add(new StartOperator());
         Matcher matcher = pattern.matcher(str);
-        int count = matcher.groupCount();
-        for (int i = 0; i < count; i++){
-            this.operatorQueue.add(ArithmeticOperator.valueOf(matcher.group(i)));
+        while (matcher.find()){
+            this.operatorQueue.add(ArithmeticOperator.operatorByString(matcher.group()));
         }
     }
 

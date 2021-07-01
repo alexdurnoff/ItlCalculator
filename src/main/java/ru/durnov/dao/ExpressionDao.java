@@ -30,9 +30,7 @@ public class ExpressionDao implements DataBase{
         ResultSet resultSet = expressionListStatement.getResultSet();
         for (int i = 0; i < 10; i ++){
             Expression expression = new ArithmeticExpression(
-                    resultSet.getDouble(1),
-                    resultSet.getDouble(2),
-                    resultSet.getString(3)
+                    resultSet.getString(2)
             );
             expressions.add(expression);
         }
