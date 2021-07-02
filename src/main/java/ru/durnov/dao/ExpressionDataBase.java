@@ -10,6 +10,7 @@ import javax.persistence.Persistence;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class ExpressionDataBase implements DataBase{
     private final EntityManagerFactory entityManagerFactory;
@@ -42,6 +43,6 @@ public class ExpressionDataBase implements DataBase{
                 .createQuery("select e from ExpressionEntity e")
                 .setMaxResults(10)
                 .getResultList();
-        return expressionEntities;
+        return expressionEntities.stream().sorted(new ExpressionEntityComparator()).collect(Collectors.toList());
     }
 }
