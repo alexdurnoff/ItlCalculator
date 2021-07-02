@@ -24,24 +24,15 @@ public class HistoryPane extends VBox {
 
     public void refresh(){
         this.getChildren().clear();
-        this.fill();
+        fill();
     }
 
     private void fill() {
-        try {
-            dataBase.expressionList().forEach(expression -> {
-                TextField textField = new TextField(expression.getExpression() +
-                        "=" + String.format("%.4f", expression.getResult()));
-                textField.setEditable(false);
-                this.getChildren().add(textField);
-            });
-        } catch (Exception exception) {
-            try {
-                Thread.sleep(500);
-                fill();
-            } catch (InterruptedException ignored) {
-
-            }
-        }
+        dataBase.expressionList().forEach(expression -> {
+            TextField textField = new TextField(expression.getExpression() +
+                    "=" + String.format("%.4f", expression.getResult()));
+            textField.setEditable(false);
+            this.getChildren().add(textField);
+        });
     }
 }

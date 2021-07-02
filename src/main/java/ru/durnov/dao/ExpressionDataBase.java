@@ -20,7 +20,7 @@ public class ExpressionDataBase implements DataBase{
     }
 
     @Override
-    public void saveExpression(Expression expression) throws SQLException {
+    public void saveExpression(Expression expression) {
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         ExpressionEntity expressionEntity = new ExpressionEntity(expression);
         EntityTransaction transaction = entityManager.getTransaction();
@@ -36,7 +36,7 @@ public class ExpressionDataBase implements DataBase{
     }
 
     @Override
-    public List<ExpressionEntity> expressionList() throws SQLException {
+    public List<ExpressionEntity> expressionList() {
         List<Expression> expressions = new ArrayList<>();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         List<ExpressionEntity> expressionEntities = entityManager
