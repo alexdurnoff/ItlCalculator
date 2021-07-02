@@ -1,26 +1,72 @@
-ru/durnov/ui/HystoryPane.java
- ru.durnov.ui.HystoryPane
-ru/durnov/expressions/ArithmeticExpression.java
- ru.durnov.expressions.ArithmeticExpression
-ru/durnov/dao/DataBase.java
- ru.durnov.dao.DataBase
-ru/durnov/ui/buttons/NumberButton.java
- ru.durnov.ui.buttons.NumberButton
-ru/durnov/expressions/ArithmeticOperator.java
- ru.durnov.expressions.ArithmeticOperator
-ru/durnov/dao/ExpressionDao.java
- ru.durnov.dao.ExpressionDao
+ru/durnov/expressions/StringReplacePower.java
+ ru.durnov.expressions.StringReplacePower
+ru/durnov/expressions/BracketSymbol.java
+ ru.durnov.expressions.BracketSymbol
+ru/durnov/expressions/StringQueue.java
+ ru.durnov.expressions.StringQueue
+ru/durnov/expressions/SimpleNumber.java
+ ru.durnov.expressions.SimpleNumber
+ru/durnov/expressions/PowerNumber.java
+ ru.durnov.expressions.PowerNumber
+ru/durnov/expressions/Numbers.java
+ ru.durnov.expressions.Numbers
 ru/durnov/ui/Calculator.java
  ru.durnov.ui.Calculator
-ru/durnov/ui/CalculationPane.java
- ru.durnov.ui.CalculationPane
-ru/durnov/expressions/Expression.java
- ru.durnov.expressions.Expression
-ru/durnov/ui/buttons/OperatorButton.java
- ru.durnov.ui.buttons.OperatorButton
-ru/durnov/ui/buttons/CalculatorButton.java
- ru.durnov.ui.buttons.CalculatorButton
-ru/durnov/Application.java
- ru.durnov.Application
+ru/durnov/ui/HistoryPane.java
+ ru.durnov.ui.HistoryPane
+ru/durnov/expressions/StringReplaceSQRT.java
+ ru.durnov.expressions.StringReplaceSQRT
+ru/durnov/dao/ExpressionEntity.java
+ ru.durnov.dao.ExpressionEntity
+ru/durnov/expressions/Symbol.java
+ ru.durnov.expressions.Symbol
+ru/durnov/ui/buttons/NumberButton.java
+ ru.durnov.ui.buttons.NumberButton
 ru/durnov/expressions/Operator.java
  ru.durnov.expressions.Operator
+ru/durnov/ui/buttons/CalculatorButton.java
+ ru.durnov.ui.buttons.CalculatorButton
+ru/durnov/ui/buttons/OperatorButton.java
+ ru.durnov.ui.buttons.OperatorButton
+ru/durnov/expressions/StringReplaceMultiplyDivide.java
+ ru.durnov.expressions.StringReplaceMultiplyDivide
+ru/durnov/expressions/NumberSymbol.java
+ ru.durnov.expressions.NumberSymbol
+ru/durnov/expressions/Operators.java
+ ru.durnov.expressions.Operators
+ru/durnov/expressions/StartOperator.java
+ ru.durnov.expressions.StartOperator
+ru/durnov/ui/buttons/CancelButton.java
+ ru.durnov.ui.buttons.CancelButton
+ru/durnov/expressions/StringReplaceBrackets.java
+ ru.durnov.expressions.StringReplaceBrackets
+ru/durnov/dao/DataBase.java
+ ru.durnov.dao.DataBase
+ru/durnov/expressions/Result.java
+ ru.durnov.expressions.Result
+ru/durnov/expressions/ArithmeticOperator.java
+ ru.durnov.expressions.ArithmeticOperator
+ru/durnov/expressions/SQRTNumber.java
+ ru.durnov.expressions.SQRTNumber
+ru/durnov/Application.java
+ ru.durnov.Application
+ru/durnov/expressions/Number.java
+ ru.durnov.expressions.Number
+ru/durnov/ui/CalculatorPane.java
+ ru.durnov.ui.CalculatorPane
+ru/durnov/expressions/Expression.java
+ ru.durnov.expressions.Expression
+ru/durnov/expressions/BracketNumber.java
+ ru.durnov.expressions.BracketNumber
+ru/durnov/dao/ExpressionDataBase.java
+ ru.durnov.dao.ExpressionDataBase
+ru/durnov/dao/ExpressionDao.java
+ ru.durnov.dao.ExpressionDao
+ru/durnov/expressions/ExpressionString.java
+ ru.durnov.expressions.ExpressionString
+ru/durnov/ui/buttons/EqualButton.java
+ ru.durnov.ui.buttons.EqualButton
+ru/durnov/expressions/ArithmeticExpression.java
+ ru.durnov.expressions.ArithmeticExpression
+ru/durnov/expressions/MultiplyOrDivideNumber.java
+ ru.durnov.expressions.MultiplyOrDivideNumber

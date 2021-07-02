@@ -1,17 +1,18 @@
 package ru.durnov.expressions;
 
 public class ArithmeticExpression implements Expression {
-    private final String request;
+    private final String string;
     private final Result result;
 
+
     public ArithmeticExpression(String str){
-        this.result = new Result(str);
-        this.request = str + "=" + String.format("%.2f", this.result.result());
+        this.result = new Result(new ExpressionString(str).string());
+        this.string = str;
     }
 
     public ArithmeticExpression(String first, String operator, String second){
         this.result = new Result(first + operator + second);
-        this.request = first + operator + second + "=" + String.format("%.2f", this.result.result());
+        this.string = first + operator + second;
     }
 
     @Override
@@ -21,6 +22,11 @@ public class ArithmeticExpression implements Expression {
 
     @Override
     public String sql() {
-        return this.request;
+        return this.string;
+    }
+
+    @Override
+    public String toString() {
+        return this.string;
     }
 }

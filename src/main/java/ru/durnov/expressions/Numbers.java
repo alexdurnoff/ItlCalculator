@@ -16,6 +16,7 @@ public class Numbers {
             if (match.matches("[0-9.]+[*/][0-9.]+")){
                 numberQueue.add(new MultiplyOrDivideNumber(match));
             } else {
+                System.out.println("before add SimpleNumber match is " + match);
                 numberQueue.add(new SimpleNumber(Double.parseDouble(match)));
             }
         }

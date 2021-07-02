@@ -8,7 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class ExpressionDao implements DataBase{
-    private final String url = "jdbc:sqlite:DB/history.sqlite3";
+    private final String url = "jdbc:sqlite:DB/history";
     private final Connection connection;
     private final PreparedStatement expressionListStatement;
 
@@ -28,7 +28,7 @@ public class ExpressionDao implements DataBase{
     public List<Expression> expressionList() throws SQLException {
         List<Expression> expressions = new ArrayList<>();
         ResultSet resultSet = expressionListStatement.getResultSet();
-        for (int i = 0; i < 10; i ++){
+        for (int i = 0; i < 10 || i < resultSet.getFetchSize(); i ++){
             Expression expression = new ArithmeticExpression(
                     resultSet.getString(2)
             );
