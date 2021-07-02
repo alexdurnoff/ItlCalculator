@@ -5,14 +5,11 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import ru.durnov.dao.DataBase;
 import ru.durnov.expressions.ArithmeticOperator;
-import ru.durnov.ui.buttons.CancelButton;
-import ru.durnov.ui.buttons.EqualButton;
-import ru.durnov.ui.buttons.NumberButton;
-import ru.durnov.ui.buttons.OperatorButton;
+import ru.durnov.ui.controls.*;
 
 public class CalculatorPane extends VBox {
     private final DataBase dataBase;
-    private final TextField textField = new TextField();
+    private final TextField textField = new CalcField();
     private final NumberButton button0 = new NumberButton(0, this.textField);
     private final NumberButton button1 = new NumberButton(1, this.textField);
     private final NumberButton button2 = new NumberButton(2, this.textField);
@@ -31,15 +28,25 @@ public class CalculatorPane extends VBox {
     private final OperatorButton buttonPower = new OperatorButton(ArithmeticOperator.POWER, this.textField);
     private final EqualButton equalButton;
     private final CancelButton cancelButton = new CancelButton(this.textField);
+    private final OpenBracketButton openBracketButton = new OpenBracketButton(this.textField);
+    private final CloseBracketButton closeBracketButton = new CloseBracketButton(this.textField);
 
     public CalculatorPane(DataBase dataBase) {
         this.dataBase = dataBase;
         this.equalButton = new EqualButton(this.textField, this.dataBase);
-        this.getChildren().add(new HBox(button1, button2, button3));
-        this.getChildren().add(new HBox(button4, button5, button6));
-        this.getChildren().add(new HBox(button7, button8, button9));
-        this.getChildren().add(new HBox(button0, buttonPlus, buttonMinus));
-        this.getChildren().add(new HBox(buttonMultiply, buttonDivide, buttonPower));
-        this.getChildren().add(new HBox(buttonSQRT, cancelButton, equalButton));
+
+        this.getChildren().add(this.textField);
+        this.getChildren().add(new HBox(button1, button2, button3, button4));
+        this.getChildren().add(new HBox(button5, button6, button7, button8));
+        this.getChildren().add(new HBox(button9, buttonPlus, buttonMinus, buttonMultiply));
+        this.getChildren().add(new HBox(button0, buttonDivide, buttonPower, buttonSQRT));
+        this.getChildren().add(new HBox(openBracketButton, closeBracketButton,cancelButton, equalButton));
+
     }
+
+    public EqualButton equalButton(){
+        return this.equalButton;
+    }
+
+
 }

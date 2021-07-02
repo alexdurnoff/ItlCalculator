@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
 
 public class MultiplyOrDivideNumber implements Number{
     private final Expression expression;
-    private final static Pattern pattern = Pattern.compile("([0-9]+)([*/])([0-9]+)");
+    private final static Pattern pattern = Pattern.compile("([0-9.]+)([*/])([0-9.]+)");
 
     public MultiplyOrDivideNumber(String str){
         Matcher matcher = pattern.matcher(str);

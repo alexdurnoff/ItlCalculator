@@ -29,43 +29,4 @@ class NumbersTest {
         assertEquals(number.value(),5., 0.0001);
     }
 
-    @Test
-    void testWithInnerBrackets(){
-        String source = "1+(6/2+(3*4))";
-        Queue<Number> queue = new Numbers(source).queue();
-        queue.forEach(number -> {
-            System.out.println(number.value());
-        });
-    }
-
-    @Test
-    void test3(){
-        String source = "6/2+(3*4)";
-        Queue<Number> queue = new Numbers(source).queue();
-        queue.forEach(number -> {
-            System.out.println(number.value());
-        });
-    }
-
-    @Test
-    void testRegularExpression(){
-        Pattern pattern = Pattern.compile("([0-9]+)|(\\((.+)\\))|([0-9]+[*/][0-9]+)");
-        Matcher matcher = pattern.matcher("1+(6/2+(3*4)) + (4+2)");
-        while (matcher.find()){
-            System.out.println(matcher.group());
-        }
-
-    }
-
-    @Test
-    void testMultiplyOrDivideExpression(){
-        Pattern pattern = Pattern.compile("([0-9]+)|(\\((.+)\\))|([0-9]+[*/][0-9]+)");
-        Matcher matcher = pattern.matcher("1+(6/2+(3*4)) + (4+2)");
-        int start = 0;
-        while (matcher.find(start)){
-            System.out.println(matcher.group());
-            start = matcher.end() + 1;
-        }
-    }
-
 }

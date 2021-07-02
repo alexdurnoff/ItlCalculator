@@ -42,9 +42,8 @@ class ExpressionDataBaseTest {
         this.dataBase.saveExpression(expression10);
         Expression expression11 = new ArithmeticExpression("16-4");
         this.dataBase.saveExpression(expression11);
-        List<Expression> expressions = this.dataBase.expressionList();
+        List<ExpressionEntity> expressions = this.dataBase.expressionList();
         assertEquals(10, expressions.size());
-        assertTrue(!expressions.contains(expression1));
     }
 
 }

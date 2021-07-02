@@ -8,7 +8,7 @@ public class BracketNumber implements Number{
         String newString = str.replace("(", "").replace(")", "");
         if (newString.contains("(")) {
             this.result = new ArithmeticExpression(
-                    new StringReplaceBrackets(newString).string()
+                    str, new StringReplaceBrackets(newString).string()
             ).result();
         } else {
             this.result = new Result(

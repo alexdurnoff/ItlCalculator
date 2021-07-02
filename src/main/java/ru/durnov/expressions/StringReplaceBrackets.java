@@ -12,7 +12,8 @@ public class StringReplaceBrackets {
         while (matcher.find()){
             matcher.appendReplacement(
                     stringBuffer,
-                    String.valueOf(
+                    String.format(
+                            "%.10f",
                             new BracketNumber(matcher.group()).value()
                     )
             );

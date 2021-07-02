@@ -13,4 +13,11 @@ class StringReplaceMultiplyDivideTest {
         assertEquals(result, "6.0+6.0");
     }
 
+    @Test
+    void testWithFloatNumbers(){
+        String source = "2,4000*7";
+        String result = new StringReplaceMultiplyDivide(source).string();
+        assertEquals(result, "16.8");
+    }
+
 }

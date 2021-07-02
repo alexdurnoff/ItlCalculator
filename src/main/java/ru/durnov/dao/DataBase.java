@@ -7,5 +7,5 @@ import java.util.List;
 
 public interface DataBase {
     void saveExpression(Expression expression) throws SQLException;
-    List<Expression> expressionList() throws SQLException;
+    List<ExpressionEntity> expressionList() throws SQLException;
 }

@@ -10,7 +10,7 @@ class BracketNumberTest {
     void test1(){
         String source = "(6/2+(3*4))";
         BracketNumber bracketNumber = new BracketNumber(source);
-        System.out.println(bracketNumber.value());
+        assertEquals(bracketNumber.value(), 15.0, 0.001);
     }
 
 }

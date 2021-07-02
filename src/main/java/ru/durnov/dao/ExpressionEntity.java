@@ -15,12 +15,24 @@ public class ExpressionEntity {
     @Column(name = "expression")
     private String expression;
 
+    @Column(name = "result")
+    private double result;
+
+    public double getResult() {
+        return result;
+    }
+
+    public void setResult(double result) {
+        this.result = result;
+    }
+
     public ExpressionEntity(){
 
     }
 
     public ExpressionEntity(Expression exp){
         this.expression = exp.toString();
+        this.result = exp.result();
     }
 
     public long getId() {

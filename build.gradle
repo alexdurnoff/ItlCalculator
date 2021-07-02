@@ -13,7 +13,7 @@ repositories {
 
 jar {
     manifest {
-        attributes "Main-Class": "ru.durnov.ui.Application"
+        attributes "Main-Class": "ru.durnov.Application"
     }
 
     from {
@@ -24,10 +24,10 @@ jar {
 
 dependencies {
     // https://mvnrepository.com/artifact/org.hibernate/hibernate-core
-    implementation group: 'org.hibernate', name: 'hibernate-core', version: '5.5.3.Final'
+    compile group: 'org.hibernate', name: 'hibernate-core', version: '5.5.3.Final'
     // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
-    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.1'
-    implementation group: 'com.github.gwenn', name: 'sqlite-dialect', version: '0.1.2'
+    compile group: 'org.xerial', name: 'sqlite-jdbc', version: '3.36.0.1'
+    compile group: 'com.github.gwenn', name: 'sqlite-dialect', version: '0.1.2'
 
     testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
     testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'

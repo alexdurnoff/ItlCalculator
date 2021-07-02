@@ -32,9 +32,5 @@ class OperatorsTest {
         assertSame(queue.remove(), ArithmeticOperator.PLUS);
     }
 
-    @Test
-    void testWithBracketNumber(){
-
-    }
 
 }

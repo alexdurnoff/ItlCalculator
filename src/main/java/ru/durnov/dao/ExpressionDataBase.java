@@ -35,16 +35,13 @@ public class ExpressionDataBase implements DataBase{
     }
 
     @Override
-    public List<Expression> expressionList() throws SQLException {
+    public List<ExpressionEntity> expressionList() throws SQLException {
         List<Expression> expressions = new ArrayList<>();
         EntityManager entityManager = entityManagerFactory.createEntityManager();
         List<ExpressionEntity> expressionEntities = entityManager
                 .createQuery("select e from ExpressionEntity e")
                 .setMaxResults(10)
                 .getResultList();
-        expressionEntities.forEach(expressionEntity -> {
-            expressions.add(new ArithmeticExpression(expressionEntity.getExpression()));
-        });
-        return expressions;
+        return expressionEntities;
     }
 }

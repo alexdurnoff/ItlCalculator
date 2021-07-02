@@ -5,14 +5,15 @@ import java.util.regex.Pattern;
 
 public class StringReplaceMultiplyDivide {
     private final StringBuffer stringBuffer = new StringBuffer();
-    private final static Pattern pattern = Pattern.compile("[0-9]+[*/][0-9]+");
+    private final static Pattern pattern = Pattern.compile("[0-9.]+[*/][0-9.]+");
 
     public StringReplaceMultiplyDivide(String source){
-        Matcher matcher = pattern.matcher(source);
+        Matcher matcher = pattern.matcher(source.replace(',', '.'));
         while (matcher.find()){
             matcher.appendReplacement(
                     stringBuffer,
-                    String.valueOf(
+                    String.format(
+                            "%.10f",
                             new MultiplyOrDivideNumber(matcher.group()).value()
                     )
             );
