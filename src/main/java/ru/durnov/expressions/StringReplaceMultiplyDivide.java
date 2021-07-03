@@ -8,14 +8,15 @@ public class StringReplaceMultiplyDivide {
     private final static Pattern pattern = Pattern.compile("[0-9.]+[*/][0-9.]+");
 
     public StringReplaceMultiplyDivide(String source){
-        Matcher matcher = pattern.matcher(source.replace(',', '.'));
+        String match = source.replace(',', '.');
+        Matcher matcher = pattern.matcher(match);
         while (matcher.find()){
             matcher.appendReplacement(
                     stringBuffer,
                     String.format(
                             "%.10f",
                             new MultiplyOrDivideNumber(matcher.group()).value()
-                    )
+                    ).replace(',', '.')
             );
         }
         matcher.appendTail(stringBuffer);

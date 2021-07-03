@@ -1,14 +1,11 @@
 package ru.durnov.expressions;
 
-import java.util.ArrayDeque;
-import java.util.Queue;
-
 public class Result {
-    private final Queue<Number> numbers;
-    private final Queue<Operator> operators;
+    private final Numbers numbers;
+    private final Operators operators;
     private Double result;
 
-    public Result(Queue<Number> numbers, Queue<Operator> operators) {
+    public Result(Numbers numbers, Operators operators) {
         if (numbers.size() != operators.size()) throw new IllegalArgumentException(
                 "Illegal expression"
         );
@@ -16,19 +13,10 @@ public class Result {
         this.operators = operators;
     }
 
-    public Result(String first, String operator, String second){
-        this.numbers = new ArrayDeque<>();
-        this.operators = new ArrayDeque<>();
-        this.numbers.add(new SimpleNumber(Double.parseDouble(first)));
-        this.numbers.add(new SimpleNumber(Double.parseDouble(second)));
-        this.operators.add(new StartOperator());
-        this.operators.add(ArithmeticOperator.operatorByString(operator));
-    }
-
     public Result(String str) {
         this(
-                new Numbers(str).queue(),
-                new Operators(str).queue()
+                new Numbers(str),
+                new Operators(str)
         );
     }
 
@@ -36,9 +24,7 @@ public class Result {
         if (this.result == null){
             this.result = 0.;
             while (! operators.isEmpty()){
-                Operator operator = operators.remove();
-                Number number = numbers.remove();
-                this.result = operator.result(this.result, number.value());
+                this.result = this.operators.result(this.result, this.numbers);
             }
         }
         return this.result;

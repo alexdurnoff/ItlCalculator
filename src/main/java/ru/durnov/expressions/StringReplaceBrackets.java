@@ -22,6 +22,6 @@ public class StringReplaceBrackets {
     }
 
     public String string() {
-        return stringBuffer.toString();
+        return stringBuffer.toString().replace(',', '.');
     }
 }

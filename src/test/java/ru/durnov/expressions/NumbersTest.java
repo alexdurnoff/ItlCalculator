@@ -14,17 +14,19 @@ class NumbersTest {
     void test1(){
         String source = "1+2+3*4+5";
         Numbers numbers = new Numbers(source);
-        Queue<Number> queue = numbers.queue();
-        Number number = queue.remove();
+        Number number = numbers.nextNumber();
         assertSame(number.getClass(), SimpleNumber.class);
         assertEquals(number.value(),1., 0.0001);
-        number = queue.remove();
+        number = numbers.nextNumber();
         assertSame(number.getClass(), SimpleNumber.class);
         assertEquals(number.value(),2., 0.0001);
-        Number multiNumber = queue.remove();
-        assertSame(multiNumber.getClass(), MultiplyOrDivideNumber.class);
-        assertEquals(multiNumber.value(),12., 0.0001);
-        number = queue.remove();
+        number = numbers.nextNumber();
+        assertSame(number.getClass(), SimpleNumber.class);
+        assertEquals(number.value(),3., 0.0001);
+        number = numbers.nextNumber();
+        assertSame(number.getClass(), SimpleNumber.class);
+        assertEquals(number.value(),4., 0.0001);
+        number = numbers.nextNumber();
         assertSame(number.getClass(), SimpleNumber.class);
         assertEquals(number.value(),5., 0.0001);
     }

@@ -21,7 +21,16 @@ public class Numbers {
         }
     }
 
-    public Queue<Number> queue() {
-        return this.numberQueue;
+    public boolean isEmtpy(){
+        return this.numberQueue.isEmpty();
+    }
+
+    public Number nextNumber(){
+        if (this.numberQueue.isEmpty()) throw new IllegalStateException("Numbers is empty");
+        return this.numberQueue.remove();
+    }
+
+    public int size(){
+        return this.numberQueue.size();
     }
 }

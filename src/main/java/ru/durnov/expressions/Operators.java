@@ -11,7 +11,6 @@ public class Operators {
 
 
     public Operators(String str) {
-        String source = str.replaceAll("\\([.]\\)", "");
         this.operatorQueue.add(new StartOperator());
         Matcher matcher = pattern.matcher(str);
         while (matcher.find()){
@@ -19,7 +18,16 @@ public class Operators {
         }
     }
 
-    public Queue<Operator> queue() {
-        return this.operatorQueue;
+    public double result(double prevValue, Numbers numbers){
+        if (this.operatorQueue.isEmpty()) throw new IllegalStateException("Operators is empty");
+        return this.operatorQueue.remove().result(prevValue, numbers.nextNumber().value());
+    }
+
+    public boolean isEmpty(){
+        return this.operatorQueue.isEmpty();
+    }
+
+    public int size(){
+        return this.operatorQueue.size();
     }
 }
